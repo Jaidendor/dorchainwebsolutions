@@ -16,10 +16,16 @@ const { t } = Astro.props;
 
     <div class="dst__grid">
       {t.items.map((s, i) => (
-        <article class="dst__card reveal" style={`--delay:${i * 60}ms`}>
+        <article class="dst__card reveal" style={`--delay:${i * 60}ms`} tabindex="0" aria-expanded="false" data-expand>
           <span class="dst__num">{s.n}</span>
+          <svg class="dst__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
           <h3>{s.t}</h3>
           <p>{s.d}</p>
+          <div class="dst__detail">
+            <div><p class="dst__detail-body">{s.detail}</p></div>
+          </div>
         </article>
       ))}
 
@@ -53,4 +59,31 @@ const { t } = Astro.props;
   .dst__link:hover { text-decoration: underline; }
   @media (max-width: 900px) { .dst__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px) { .dst__grid { grid-template-columns: 1fr; } }
+
+  .dst__card[data-expand] { cursor: pointer; user-select: none; }
+  .dst__card[data-expand]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .dst__chevron {
+    position: absolute; top: clamp(1.4rem, 1rem + 1vw, 2rem); right: clamp(1.4rem, 1rem + 1vw, 2rem);
+    width: 1.1rem; height: 1.1rem; color: var(--muted);
+    transition: transform 0.3s var(--ease), color 0.2s;
+  }
+  .dst__card[data-expand]:hover .dst__chevron { color: var(--accent-deep); }
+  .dst__card[aria-expanded="true"] .dst__chevron { transform: rotate(180deg); color: var(--accent-deep); }
+  .dst__detail { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s var(--ease); }
+  .dst__detail > div { overflow: hidden; }
+  .dst__card[aria-expanded="true"] .dst__detail { grid-template-rows: 1fr; }
+  .dst__detail-body { margin-top: 0.8rem; padding-top: 0.7rem; border-top: 1px solid var(--line); font-size: 0.93rem; line-height: 1.65; }
 </style>
+
+<script>
+  document.querySelectorAll('[data-expand]').forEach(card => {
+    const toggle = () => {
+      const open = card.getAttribute('aria-expanded') === 'true';
+      card.setAttribute('aria-expanded', String(!open));
+    };
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+</script>
