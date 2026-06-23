@@ -6,12 +6,14 @@ interface Props {
   title?: string;
   description?: string;
   path?: string;
+  lang?: string;
 }
 
 const {
   title = `${site.brand} — ${site.tagline}`,
   description = site.description,
   path = '/',
+  lang = 'nl',
 } = Astro.props;
 
 const canonical = new URL(path, site.url).href;
@@ -37,7 +39,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="nl">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,7 +52,7 @@ const jsonLd = {
     <meta name="author" content={site.person} />
 
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_GB' : 'nl_NL'} />
     <meta property="og:site_name" content={site.brand} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -63,7 +65,7 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
-    <a class="skip-link" href="#main">Direct naar de inhoud</a>
+    <a class="skip-link" href="#main">{lang === 'en' ? 'Skip to content' : 'Direct naar de inhoud'}</a>
     <slot />
 
     <script>

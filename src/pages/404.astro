@@ -1,10 +1,11 @@
 ---
+import { nl } from '../i18n/translations';
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 ---
-<Base title="Pagina niet gevonden — Dorchain Web Solutions" path="/404">
-  <Nav />
+<Base title="Pagina niet gevonden — Dorchain Web Solutions" path="/404" lang="nl">
+  <Nav t={nl.nav} />
   <main id="main" class="nf">
     <div class="container nf__inner">
       <p class="eyebrow">Fout 404</p>
@@ -16,7 +17,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
   </main>
-  <Footer />
+  <Footer t={nl.footer} nav={nl.nav} />
 </Base>
 
 <style>

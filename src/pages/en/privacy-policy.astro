@@ -1,0 +1,68 @@
+---
+import { en } from '../../i18n/translations';
+import { site } from '../../data/site';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+<Base
+  title={`Privacy Policy — ${site.brand}`}
+  description="How Dorchain Web Solutions handles your data submitted via the contact form."
+  path="/en/privacy-policy"
+  lang="en"
+>
+  <Nav t={en.nav} />
+  <main id="main" class="legal">
+    <div class="container">
+      <p class="eyebrow">Privacy</p>
+      <h1>Privacy Policy</h1>
+      <p class="legal__lead">
+        Short version: I use your data only to respond to your message. I don't sell
+        anything on and I don't place tracking cookies.
+      </p>
+
+      <h2>Who processes your data?</h2>
+      <p>
+        {site.person}, trading as {site.brand} (sole proprietorship in formation). You
+        can reach me at <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>What data and why</h2>
+      <p>
+        When you fill in the contact form, I receive your name, email address, optionally
+        your website and your message. I use these to get in touch with you and answer
+        your question. I have no legal obligation to retain them, so I don't keep them
+        longer than necessary.
+      </p>
+
+      <h2>Form submission</h2>
+      <p>
+        The form runs via Formspree. They process your message on my behalf and forward
+        it to my inbox. For their practices, see
+        <a href="https://formspree.io/legal/privacy-policy/" rel="noopener" target="_blank">Formspree's privacy policy</a>.
+      </p>
+
+      <h2>Your rights</h2>
+      <p>
+        You may request what data I hold about you, have it corrected or deleted. Send
+        me an email and I'll arrange it. If you can't resolve it with me, you can contact
+        the Dutch Data Protection Authority (Autoriteit Persoonsgegevens).
+      </p>
+
+      <p class="legal__note">Last updated: June 2026.</p>
+      <p><a class="btn btn--ghost" href="/en/">&larr; Back to the site</a></p>
+    </div>
+  </main>
+  <Footer t={en.footer} nav={en.nav} />
+</Base>
+
+<style>
+  .legal { padding-block: clamp(3rem, 2rem + 4vw, 5rem) var(--space-section); }
+  .legal h1 { font-size: var(--text-h2); margin: 1rem 0; }
+  .legal__lead { font-size: var(--text-lead); color: var(--ink-soft); max-width: 56ch; margin-bottom: 2.5rem; }
+  .legal h2 { font-size: var(--text-h3); margin: 2rem 0 0.6rem; }
+  .legal p { max-width: 64ch; color: var(--ink-soft); margin-bottom: 0.6rem; }
+  .legal a { color: var(--accent-deep); }
+  .legal__note { font-size: 0.88rem; color: var(--muted); margin: 2.5rem 0; }
+  .legal .btn { color: var(--ink); }
+</style>

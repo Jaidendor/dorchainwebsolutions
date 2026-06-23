@@ -1,0 +1,30 @@
+---
+import { en } from '../../i18n/translations';
+import { site } from '../../data/site';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Hero from '../../components/Hero.astro';
+import Herkenning from '../../components/Herkenning.astro';
+import Diensten from '../../components/Diensten.astro';
+import Aanpak from '../../components/Aanpak.astro';
+import Over from '../../components/Over.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+---
+<Base
+  title={`${site.brand} — Web improvement for freelancers`}
+  description="I help freelancers with an existing website that needs improvement: styling, Google visibility, speed, accessibility and mobile friendliness."
+  path="/en/"
+  lang="en"
+>
+  <Nav t={en.nav} />
+  <main id="main">
+    <Hero t={en.hero} />
+    <Herkenning t={en.herkenning} />
+    <Diensten t={en.diensten} />
+    <Aanpak t={en.aanpak} />
+    <Over t={en.over} />
+    <Contact t={en.contact} />
+  </main>
+  <Footer t={en.footer} nav={en.nav} />
+</Base>
