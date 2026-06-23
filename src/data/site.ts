@@ -1,14 +1,14 @@
 // Centrale site-configuratie. Pas de placeholders hieronder aan zodra de
 // eenmanszaak is opgericht en je echte gegevens hebt.
 export const site = {
-  brand: 'Dorchain Web Solutions',
+  brand: 'Dorchain Studio',
   person: 'Jaiden Dorchain',
   tagline: 'Webverbetering voor zzp’ers',
   description:
     'Ik help zzp’ers met een bestaande website die beter moet: ' +
     'styling, vindbaarheid in Google, snelheid, toegankelijkheid en ' +
     'mobiel gebruik. Vraag een gratis website-scan aan.',
-  url: 'https://dorchainwebsolutions.nl',
+  url: 'https://dorchain.studio',
 
   // Formspree endpoint voor het contactformulier (door jou aangeleverd).
   formspreeEndpoint: 'https://formspree.io/f/mkolwgbn',

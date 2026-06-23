@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 // Pas dit domein aan zodra het definitief is. Het wordt gebruikt voor
 // canonical-links, de sitemap en Open Graph URLs.
 export default defineConfig({
-  site: 'https://dorchainwebsolutions.nl',
+  site: 'https://dorchain.studio',
   integrations: [sitemap()],
   build: { inlineStylesheets: 'auto' },
   compressHTML: true,
