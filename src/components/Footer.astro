@@ -14,7 +14,7 @@ const year = new Date().getFullYear();
     <div class="footer__brand">
       <span class="footer__name">Dorchain<span class="dim"> Web Solutions</span></span>
       <p>{t.tagline}</p>
-      <a class="btn btn--ghost btn--on-dark" href="#contact">{t.scan}</a>
+      <a class="btn btn--ghost btn--on-dark" href={nav.ctaHref}>{t.scan}</a>
     </div>
 
     <nav class="footer__col" aria-label={nav.lang === 'en' ? 'Footer navigation' : 'Footernavigatie'}>

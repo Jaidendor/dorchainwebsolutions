@@ -9,7 +9,7 @@ const { t } = Astro.props;
 ---
 <header class="nav">
   <div class="container nav__inner">
-    <a class="nav__brand" href="#top" aria-label={`${site.brand}, ${t.brandLabel}`}>
+    <a class="nav__brand" href={t.brandHref} aria-label={`${site.brand}, ${t.brandLabel}`}>
       <span class="nav__mark" aria-hidden="true">
         <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11" class="mk-track"/><circle cx="16" cy="16" r="11" class="mk-bar"/></svg>
       </span>
@@ -27,7 +27,7 @@ const { t } = Astro.props;
         ))}
       </ul>
       <a class="nav__lang" href={t.switchHref} aria-label={t.switchLabel}>{t.switchCode}</a>
-      <a class="btn nav__cta" href="#contact">{t.cta}</a>
+      <a class="btn nav__cta" href={t.ctaHref}>{t.cta}</a>
     </nav>
   </div>
 </header>
